@@ -28,3 +28,10 @@ Route.resource('user', 'UserController')
   .validator(new Map([
     [['user.update'], ['UpdateUser']],
   ]))
+Route.resource('recipe', 'RecipeController')
+  .apiOnly()
+  .middleware('auth')
+  .validator(new Map([
+    [['recipe.store'], ['StoreRecipe']],
+    [['recipe.update'], ['UpdateRecipe']],
+  ]))
